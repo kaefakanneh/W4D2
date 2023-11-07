@@ -1,6 +1,8 @@
 require_relative 'piece'
 
+
 class Board
+  attr_accessor :rows
   def initialize
     @rows = Array.new(8) do |row_index|
       Array.new(8) do |column_index|
@@ -16,7 +18,27 @@ class Board
     end
   end
 
-  # def move_piece(start_pos, end_pos)
-  #   raise "" if there is no piece at start_pos
-  # end
+  def move_piece(start_pos, end_pos)
+    raise "Trying to move nil piece" if self[start_pos].nil?
+    raise "Trying to move to an invalid position" unless valid_pos?(end_pos)
+
+    self[end_pos] = self[start_pos]
+    self[start_pos] = nil
+  end
+
+  def [](pos)
+    row,col = pos
+    rows[row][col]
+  end
+
+  def []=(pos, value)
+    row, col = pos
+    rows[row][col] = value
+  end
+
+  def valid_pos?(pos)
+    pos.all? {|coordinate| coordinate.between?(0,7) }
+  end
+
+
 end
