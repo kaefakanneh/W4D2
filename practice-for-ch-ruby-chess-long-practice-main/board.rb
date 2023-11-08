@@ -11,6 +11,8 @@ class Board
           Piece.new(:white, self, [row_index, column_index])
         when 6, 7
           Piece.new(:black, self, [row_index, column_index])
+        else
+          Piece.new(:empty, self, [row_index, column_index]) # null piece
         end
       end
     end
