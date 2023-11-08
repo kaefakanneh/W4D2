@@ -34,7 +34,7 @@ module Slidable
     moves = []
 
     move_dirs.each do |dir|
-      moves << grow_unblocked_moves_in_dir(dir)
+      moves += grow_unblocked_moves_in_dir(dir)
     end
     moves
   end
