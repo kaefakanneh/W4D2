@@ -42,7 +42,7 @@ class Piece
     when :♟
       Pawn.new(color, board, pos)
     else
-      NullPiece.new(board, pos)
+      NullPiece.instance
     end
   end
 end

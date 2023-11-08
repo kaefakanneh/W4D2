@@ -1,7 +1,9 @@
 require_relative 'piece'
+require 'singleton'
 class NullPiece < Piece
-  def initialize(board, pos)
-    super(:empty, board, pos)
+  include Singleton
+  def initialize
+    super(:empty, nil, nil)
   end
 
   def moves

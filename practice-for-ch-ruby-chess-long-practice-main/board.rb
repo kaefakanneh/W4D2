@@ -20,7 +20,7 @@ class Board
         when 7
           Piece.symbol_to_piece(pieces[column_index], :black, self, [row_index, column_index])
         else
-          NullPiece.new(self, [row_index, column_index]) # null piece
+          NullPiece.instance
         end
       end
     end
@@ -33,7 +33,7 @@ class Board
 
     self[start_pos].pos = end_pos
     self[end_pos] = self[start_pos]
-    self[start_pos] = NullPiece.new(self, start_pos) # null piece
+    self[start_pos] = NullPiece.instance
   end
 
   def [](pos)
