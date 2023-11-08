@@ -1,4 +1,6 @@
 require_relative 'pieces/piece'
+require_relative 'pieces/pawn'
+require_relative 'pieces/NullPiece'
 
 class Board
   attr_accessor :rows
@@ -7,12 +9,16 @@ class Board
     @rows = Array.new(8) do |row_index|
       Array.new(8) do |column_index|
         case row_index
-        when 0, 1
+        when 0
           Piece.new(:white, self, [row_index, column_index])
-        when 6, 7
+        when 1
+          Pawn.new(:white, self, [row_index, column_index])
+        when 6
+          Pawn.new(:black, self, [row_index, column_index])
+        when 7
           Piece.new(:black, self, [row_index, column_index])
         else
-          Piece.new(:empty, self, [row_index, column_index]) # null piece
+          NullPiece.new(self, [row_index, column_index]) # null piece
         end
       end
     end
