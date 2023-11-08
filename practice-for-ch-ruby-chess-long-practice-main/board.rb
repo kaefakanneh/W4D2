@@ -1,24 +1,24 @@
 require_relative 'pieces/piece'
-require_relative 'pieces/pawn'
-require_relative 'pieces/knight'
-require_relative 'pieces/king'
 require_relative 'pieces/NullPiece'
 
 class Board
   attr_accessor :rows
 
   def initialize
+    pieces = %i(♜ ♞ ♝)
+    pieces += %i(♛ ♚) + pieces.reverse
+
     @rows = Array.new(8) do |row_index|
       Array.new(8) do |column_index|
         case row_index
         when 0
-          Piece.new(:white, self, [row_index, column_index])
+          Piece.symbol_to_piece(pieces[column_index], :white, self, [row_index, column_index])
         when 1
           Pawn.new(:white, self, [row_index, column_index])
         when 6
           Pawn.new(:black, self, [row_index, column_index])
         when 7
-          Piece.new(:black, self, [row_index, column_index])
+          Piece.symbol_to_piece(pieces[column_index], :black, self, [row_index, column_index])
         else
           NullPiece.new(self, [row_index, column_index]) # null piece
         end
