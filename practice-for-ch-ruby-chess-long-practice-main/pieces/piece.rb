@@ -4,4 +4,8 @@ class Piece
     @board = board
     @pos = pos
   end
+
+  def empty?
+    is_a?(NullPiece)
+  end
 end
