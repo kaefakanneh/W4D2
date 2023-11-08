@@ -1,5 +1,7 @@
 require_relative 'pieces/piece'
 require_relative 'pieces/pawn'
+require_relative 'pieces/knight'
+require_relative 'pieces/king'
 require_relative 'pieces/NullPiece'
 
 class Board
@@ -28,9 +30,10 @@ class Board
     raise 'Trying to move nil piece' if self[start_pos].nil?
     raise 'Trying to move to an invalid position' unless valid_pos?(end_pos)
 
-    # TODO: update piece's @pos as well
+
+    self[start_pos].pos = end_pos
     self[end_pos] = self[start_pos]
-    self[start_pos] = nil
+    self[start_pos] = NullPiece.new(self, start_pos) # null piece
   end
 
   def [](pos)
