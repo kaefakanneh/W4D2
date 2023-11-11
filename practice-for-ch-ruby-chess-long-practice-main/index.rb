@@ -1,6 +1,6 @@
 require 'js'
-require 'delegate.rb'
-require 'singleton.rb'
+require 'delegate'
+require 'singleton'
 JS.global[:document].getElementsByTagName('h1')[0][:innerText] = 'Loaded!'
 
 class JSBoard < Board
@@ -45,10 +45,8 @@ class JSBoard < Board
     return self.active_cell = clicked_cell if active_cell.nil?
     return self.active_cell = clicked_cell unless active_cell.piece.moves.include?(clicked_cell.pos)
 
-    p 'valid spot pickde!'
     move_piece(active_cell, clicked_cell)
     self.active_cell = nil
-
   end
 
   def active_cell=(new_active_cell)
