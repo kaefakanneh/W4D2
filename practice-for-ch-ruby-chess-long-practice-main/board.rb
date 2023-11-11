@@ -31,11 +31,12 @@ class Board
   def move_piece(start_pos, end_pos)
     raise 'Trying to move nil piece' if self[start_pos].nil?
     raise 'Trying to move to an invalid position' unless valid_pos?(end_pos)
-
+    return false unless self[start_pos].moves.include?(end_pos)
 
     self[start_pos].pos = end_pos
     self[end_pos] = self[start_pos]
     self[start_pos] = NullPiece.instance
+    true
   end
 
   def [](pos)
