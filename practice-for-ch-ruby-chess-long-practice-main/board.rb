@@ -1,8 +1,10 @@
-require_relative 'pieces/piece'
-require_relative 'pieces/NullPiece'
+# require_relative 'pieces/piece'
+# require_relative 'pieces/NullPiece'
 
 class Board
   attr_accessor :rows
+
+  SYMBOL_PIECES = { ♜:Rook, ♞:Knight, ♝:Bishop, ♛:Queen, ♚:King, ♟:Pawn }
 
   def initialize
     pieces = %i(♜ ♞ ♝)
@@ -12,13 +14,13 @@ class Board
       Array.new(8) do |column_index|
         case row_index
         when 0
-          Piece.symbol_to_piece(pieces[column_index], :white, self, [row_index, column_index])
+          SYMBOL_PIECES[pieces[column_index]].new(:white, self, [row_index, column_index])
         when 1
           Pawn.new(:white, self, [row_index, column_index])
         when 6
           Pawn.new(:black, self, [row_index, column_index])
         when 7
-          Piece.symbol_to_piece(pieces[column_index], :black, self, [row_index, column_index])
+          SYMBOL_PIECES[pieces[column_index]].new(:black, self, [row_index, column_index])
         else
           NullPiece.instance
         end
