@@ -3,17 +3,17 @@
 
 <head>
     <script src="https://cdn.jsdelivr.net/npm/ruby-3_2-wasm-wasi@2.1.0/dist/browser.script.iife.js"></script>
-    <script src="./pieces/piece.rb"  type="text/ruby"></script>
-    <script src="./pieces/slidable.rb"  type="text/ruby"></script>
-    <script src="./pieces/stepable.rb"  type="text/ruby"></script>
-    <script src="./pieces/bishop.rb"  type="text/ruby"></script>
-    <script src="./pieces/king.rb"  type="text/ruby"></script>
-    <script src="./pieces/knight.rb"  type="text/ruby"></script>
-    <script src="./pieces/NullPiece.rb"  type="text/ruby"></script>
-    <script src="./pieces/pawn.rb"  type="text/ruby"></script>
-    <script src="./pieces/queen.rb"  type="text/ruby"></script>
-    <script src="./pieces/rook.rb"  type="text/ruby"></script>
-    <script src="./board.rb"  type="text/ruby"></script>
+    <script src="./pieces/piece.rb" type="text/ruby"></script>
+    <script src="./pieces/slidable.rb" type="text/ruby"></script>
+    <script src="./pieces/stepable.rb" type="text/ruby"></script>
+    <script src="./pieces/bishop.rb" type="text/ruby"></script>
+    <script src="./pieces/king.rb" type="text/ruby"></script>
+    <script src="./pieces/knight.rb" type="text/ruby"></script>
+    <script src="./pieces/NullPiece.rb" type="text/ruby"></script>
+    <script src="./pieces/pawn.rb" type="text/ruby"></script>
+    <script src="./pieces/queen.rb" type="text/ruby"></script>
+    <script src="./pieces/rook.rb" type="text/ruby"></script>
+    <script src="./board.rb" type="text/ruby"></script>
     <script src="./index.rb" type="text/ruby"></script>
     <script src="https://cdn.tailwindcss.com"></script>
     <title>Document</title>
@@ -22,7 +22,12 @@
 <body>
     <div class="h-[100vh] flex flex-col justify-center items-center">
         <h1 class="text-2xl">Loading...</h1>
+        <noscript>error, you need js, and also wasm for ruby. sorry.</noscript>
         <p>i love ruby</p>
+        <a class="text-blue-600 hover:underline"
+            href="https://github.com/kaefakanneh/W4D2/tree/main/practice-for-ch-ruby-chess-long-practice-main">
+            Read the source code here
+        </a>
         <table class="border-2 border-black cursor-pointer">
             <tr>
                 <td class="even:bg-gray-300 hover:bg-gray-500 w-8 h-8 text-center">...</td>
@@ -105,6 +110,7 @@
                 <td class="odd:bg-gray-300 hover:bg-gray-500 w-8 h-8 text-center">...</td>
             </tr>
         </table>
+        <p>Made by Kaefa and Ishan (@KooShnoo)</p>
     </div>
 </body>
 
