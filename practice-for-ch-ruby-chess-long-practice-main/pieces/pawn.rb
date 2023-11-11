@@ -1,8 +1,5 @@
 # require_relative 'piece'
 class Pawn < Piece
-  def symbol
-    '♟'
-  end
 
   def moves
     forward_steps + side_attacks
